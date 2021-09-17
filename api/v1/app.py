@@ -10,13 +10,8 @@ app = Flask(__name__)
 app.register_blueprint(app_views)
 
 
-@app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
-
-
 @app.teardown_appcontext
-def teardown():
+def teardown(data):
     """close"""
     storage.close()
 
