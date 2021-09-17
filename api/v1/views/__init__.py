@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""comment"""
+"""initialice the blueprint"""
 
 from flask import Blueprint
 
