@@ -16,6 +16,12 @@ def teardown(data):
     storage.close()
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return {"error": "Not found"}
+
+
 if __name__ == "__main__":
     app.run(host=os.getenv('HBNB_API_HOST', "0.0.0.0"),
             port=os.getenv('HBNB_API_PORT', 5000), threaded=True)
