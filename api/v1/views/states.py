@@ -2,13 +2,12 @@
 """handles all default RESTFul API actions"""
 
 from flask import jsonify, make_response, request, abort, Response
-from werkzeug.wrappers import response
 from api.v1.views import app_views
 from models.state import State
 from models import storage
 
 
-@app_views.route("/states", strict_slashes=False)
+@app_views.route("/states", methods=['GET'], strict_slashes=False)
 def return_states():
     """return all the states"""
     states = list(storage.all(State).values())
@@ -18,13 +17,13 @@ def return_states():
     return jsonify(states_list)
 
 
-@app_views.route("/states/<string:state_id>", strict_slashes=False)
+@app_views.route("/states/<string:state_id>", methods=['GET'], strict_slashes=False)
 def state_obj(state_id):
     """Retrieves a State object"""
-    if state_id is not None:
-        return(storage.get(State, state_id).to_dict())
-    else:
+    state = storage.get(State, state_id)
+    if state is None:
         abort(404)
+    return jsonify(state.to_dict())
 
 
 @app_views.route("/states/<string:state_id>", methods=['DELETE'],
@@ -51,7 +50,7 @@ def post_state():
         state = State(**request.get_json())
         storage.new(state)
         storage.save()
-        return state.to_dict(), 201
+        return jsonify(state.to_dict()), 201
 
 
 @app_views.route("/states/<string:state_id>", methods=['PUT'],
@@ -68,4 +67,4 @@ def put_state(state_id):
         if key not in ["id", "created_at", "updated_at"]:
             setattr(state, key, value)
     storage.save()
-    return state.to_dict()
+    return state.to_dict(), 200
