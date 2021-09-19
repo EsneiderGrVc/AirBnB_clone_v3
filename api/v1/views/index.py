@@ -12,12 +12,12 @@ from models.review import Review
 from models.user import User
 
 
-db_tables = {"state": State,
+db_tables = {"states": State,
              "amenities": Amenity,
-             "city": City,
-             "place": Place,
-             "review": Review,
-             "user": User}
+             "cities": City,
+             "places": Place,
+             "reviews": Review,
+             "users": User}
 
 
 @app_views.route("/status", strict_slashes=False)
