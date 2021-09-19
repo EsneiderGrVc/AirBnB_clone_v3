@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """handles all default RESTFul API actions"""
 
-from flask import jsonify, make_response, request
-from werkzeug.exceptions import abort
+from flask import jsonify, make_response, request, abort
 from api.v1.views import app_views
 from models.state import State
 from models import storage
@@ -31,7 +30,10 @@ def state_obj(state_id):
                  strict_slashes=False)
 def delete_state(state_id):
     """delete a state object"""
-    delete_obj = storage.get("State", state_id)
-    delete_obj.delete()
-    storage.save()
-    return {}
+    states = storage.all(State)
+    for key, value in states.items():
+        if "State.{}".format(state_id) == key:
+            storage.delete(value)
+            storage.save()
+            return {}
+    abort(404)
