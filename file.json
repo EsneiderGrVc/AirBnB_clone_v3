@@ -1,0 +1,32 @@
+{
+    "State.ca535ec4-d4fe-46fd-b93b-d32873268d21": {
+        "id": "ca535ec4-d4fe-46fd-b93b-d32873268d21",
+        "created_at": "2021-09-16T20:23:08.998538",
+        "updated_at": "2021-09-16T20:23:08.998591",
+        "__class__": "State"
+    },
+    "City.78ab1b7f-f611-4cb0-8d29-bdedff1bd26d": {
+        "id": "78ab1b7f-f611-4cb0-8d29-bdedff1bd26d",
+        "created_at": "2021-09-16T20:23:16.920260",
+        "updated_at": "2021-09-16T20:23:16.920292",
+        "__class__": "City"
+    },
+    "User.175d7762-56a6-44b8-9e88-6604f58e5c33": {
+        "id": "175d7762-56a6-44b8-9e88-6604f58e5c33",
+        "created_at": "2021-09-16T20:23:25.320304",
+        "updated_at": "2021-09-16T20:23:25.320348",
+        "__class__": "User"
+    },
+    "Review.a5480ad3-0dee-4739-9d82-7cadf73e6d73": {
+        "id": "a5480ad3-0dee-4739-9d82-7cadf73e6d73",
+        "created_at": "2021-09-16T20:23:32.335430",
+        "updated_at": "2021-09-16T20:23:32.335468",
+        "__class__": "Review"
+    },
+    "State.0bd637ee-a9f6-42dd-a5b6-9959ff597c49": {
+        "id": "0bd637ee-a9f6-42dd-a5b6-9959ff597c49",
+        "created_at": "2021-09-16T21:04:27.769273",
+        "updated_at": "2021-09-16T21:04:27.769349",
+        "__class__": "State"
+    }
+}
