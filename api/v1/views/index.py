@@ -32,7 +32,7 @@ def count_stats():
     new_dict = {}
     for key, value in db_tables.items():
         new_dict[key] = storage.count(value)
-    return new_dict
+    return jsonify(new_dict)
 
 if __name__ == '__main__':
     pass
