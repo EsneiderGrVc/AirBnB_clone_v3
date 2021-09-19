@@ -3,7 +3,7 @@
 
 import os
 from models import storage
-from flask import Flask, Blueprint
+from flask import Flask, Blueprint, jsonify, make_response
 from api.v1.views import app_views
 
 app = Flask(__name__)
@@ -18,8 +18,8 @@ def teardown(data):
 
 @app.errorhandler(404)
 def page_not_found(e):
-    # note that we set the 404 status explicitly
-    return {"error": "Not found"}
+    """error message"""
+    return make_response(jsonify({"error": "Not found"}), 404)
 
 
 if __name__ == "__main__":
