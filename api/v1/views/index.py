@@ -13,7 +13,7 @@ from models.user import User
 
 
 db_tables = {"state": State,
-             "amenity": Amenity,
+             "amenities": Amenity,
              "city": City,
              "place": Place,
              "review": Review,
@@ -32,4 +32,7 @@ def count_stats():
     new_dict = {}
     for key, value in db_tables.items():
         new_dict[key] = storage.count(value)
-    return jsonify(new_dict)
+    return new_dict
+
+if __name__ == '__main__':
+    pass
