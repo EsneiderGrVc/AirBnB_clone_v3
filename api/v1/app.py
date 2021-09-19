@@ -17,8 +17,7 @@ def teardown(data):
 
 
 @app.errorhandler(404)
-def page_not_found(e):
-    """error message"""
+def not_found(error):
     return make_response(jsonify({"error": "Not found"}), 404)
 
 
