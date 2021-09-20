@@ -45,7 +45,7 @@ def delete_place(place_id):
     abort(404)
 
 
-@app_views.route("/api/v1/cities/<string:city_id>/places", methods=['POST'],
+@app_views.route("/cities/<string:city_id>/places", methods=['POST'],
                  strict_slashes=False)
 def post_place(city_id):
     """Creates a Place"""
