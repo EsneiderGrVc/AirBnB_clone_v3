@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """handles all default RESTFul API actions"""
 
-from AirBnB_clone_v3.api.v1.views import users
-from werkzeug.wrappers import response
 from models import storage
 from flask import jsonify, make_response, request, abort, Response
 from api.v1.views import app_views
