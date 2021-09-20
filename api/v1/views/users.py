@@ -45,8 +45,10 @@ def post_user():
     """Creates a user"""
     if not request.get_json():
         abort(Response("Not a JSON", 400))
-    elif 'name' not in request.get_json():
-        abort(Response("Missing name", 400))
+    elif 'email' not in request.get_json():
+        abort(Response("Missing email", 400))
+    elif 'password' not in request.get_json():
+        abort(Response("Missing password", 400))
     else:
         user = User(**request.get_json())
         storage.new(user)
@@ -65,7 +67,7 @@ def put_user(user_id):
     if not body_request:
         abort(Response("Not a JSON", 400))
     for key, value in body_request.items():
-        if key not in ["id", "created_at", "updated_at"]:
+        if key not in ["id", "email", "created_at", "updated_at"]:
             setattr(user, key, value)
     storage.save()
     return user.to_dict(), 200
