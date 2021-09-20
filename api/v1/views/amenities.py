@@ -31,7 +31,7 @@ def amenity_obj(amenity_id):
                  strict_slashes=False)
 def delete_amenity(amenity_id):
     """delete a amenity object"""
-    amenities = storage.all(amenity)
+    amenities = storage.all(Amenity)
     for key, value in amenities.items():
         if "amenity.{}".format(amenity_id) == key:
             storage.delete(value)
