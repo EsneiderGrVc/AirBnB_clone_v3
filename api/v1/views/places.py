@@ -22,7 +22,7 @@ def return_places(city_id):
     return jsonify(places)
 
 
-@app_views.route("places/<string:place_id>", methods=['GET'],
+@app_views.route("/places/<string:place_id>", methods=['GET'],
                  strict_slashes=False)
 def place_obj(place_id):
     """Retrieves a Place object"""
