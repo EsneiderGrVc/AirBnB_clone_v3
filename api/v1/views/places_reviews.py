@@ -80,7 +80,11 @@ def put_review(review_id):
     if not body_request:
         abort(Response("Not a JSON", 400))
     for key, value in body_request.items():
-        if key not in ["id", "user_id", "place_id", "created_at", "updated_at"]:
+        if key not in ["id",
+                       "user_id",
+                       "place_id",
+                       "created_at",
+                       "updated_at"]:
             setattr(review, key, value)
     storage.save()
     return review.to_dict(), 200
